@@ -1,0 +1,47 @@
+#!/bin/bash
+
+## Get home directory
+user=$SUDO_USER
+home=/home/$user/
+
+## Downloads
+
+# acpi                    Client for battery, power, and thermal readings
+# alsa-utils              An alternative implementation of Linux sound support
+# arc-gtk-theme           A flat theme with transparent elements for GTK 3, GTK 2 and Gnome-Shell
+# demenu                  Fast and lightweight dynamic menu for X
+# feh                     Fast and light imlib2-based image viewer (Need for desktop background)
+# lxappearance            Feature-rich GTK+ theme switcher of the LXDE Desktop
+# maim                    Utility to take a screenshot using imlib2
+# network-manager-applet  Applet for managing network connections
+# networkmanager          Network connection manager and user applications
+# picom                   X compositor that may fix tearing issues (Replaces Compton. Needed for transparency)
+# ranger                  Simple, vim-like file manager
+# termite                 Terminal emulator
+# ttf-font-awesome        Iconic font designed for Bootstrap
+# ttf-inconsolata         Monospace font for pretty code listings and for the terminal
+# tlp                     Linux Advanced Power Management
+# xf86-input-libinput     Generic input driver for the X.Org server based on libinput
+
+pacman -Sy  xf86-input-libinput networkmanager network-manager-applet termite ttf-inconsolata ttf-font-awesome dmenu acpi tlp ranger picom feh lxappearance alsa-utils arc-gtk-theme maim
+
+## Distribute config files
+mkdir -v -p $home/.config/i3
+cp -v config/config $home.config/i3/config
+cp -v config/i3blocks.conf $home.config/i3/i3blocks.conf
+mkdir -v -p $home.scripts
+cp -v -r scripts/* $home.scripts
+
+## Setup touchpad
+
+## Enables tap to click and natural scrolling
+#echo '
+#Section "InputClass"
+#    Identifier "libinput touchpad catchall"
+#    MatchIsTouchpad "on"
+#    MatchDevicePath "/dev/input/event*"
+#    Option "NaturalScrolling" "true"
+#    Option "Tapping" "on"
+#    Driver "libinput"
+#EndSection' >> /usr/share/X11/xorg.conf.d/40-libinput.conf
+
