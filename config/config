@@ -162,7 +162,7 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9$(pkill -RTMIN+10 i3blocks)
+bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # Assign workspaces
@@ -255,14 +255,14 @@ exec --no-startup-id $term --name=math -e python\ -q
 # Pulse Audio mechanical buttons config
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ && pkill -RTMIN+10 i3blocks && pkill -RTMIN+11 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- && pkill -RTMIN+10 i3blocks && pkill -RTMIN+11 i3blocks
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec --no-startup-id ~/.scripts/status/refresh.sh # mute sound
+bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle && pkill -RTMIN+10 i3blocks && pkill -RTMIN+11 i3blocks
 
 ###############
 ### Display ###
 ###############
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 15 && pkill -RTMIN+10
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 15 && pkill -RTMIN+10
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 15 && pkill -RTMIN+10 i3blocks && pkill -RTMIN+11 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 15 && pkill -RTMIN+10 i3blocks && pkill -RTMIN+11 i3blocks
 
 
 ########
