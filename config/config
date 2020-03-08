@@ -251,19 +251,18 @@ exec --no-startup-id $term --name=math -e python\ -q
 ### Audio ###
 #############
 
-#pkill -RTMIN+10 i3blocks
 
 # Pulse Audio mechanical buttons config
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5+ && pkill -9 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5- && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ && pkill -RTMIN+10 i3blocks && pkill -RTMIN+11 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- && pkill -RTMIN+10 i3blocks && pkill -RTMIN+11 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec --no-startup-id ~/.scripts/status/refresh.sh # mute sound
 
 ###############
 ### Display ###
 ###############
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 15; exec --no-startup-id ~/.scripts/refresh.sh
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 15; exec --no-startup-id ~/.scripts/refresh.sh
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 15 && pkill -RTMIN+10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 15 && pkill -RTMIN+10
 
 
 ########

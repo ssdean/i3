@@ -16,14 +16,17 @@ home=/home/$user/
 # network-manager-applet  Applet for managing network connections
 # networkmanager          Network connection manager and user applications
 # picom                   X compositor that may fix tearing issues (Replaces Compton. Needed for transparency)
+# polkit-gnome            Legacy polkit authentication agent for GNOME
 # ranger                  Simple, vim-like file manager
 # termite                 Terminal emulator
 # ttf-font-awesome        Iconic font designed for Bootstrap
 # ttf-inconsolata         Monospace font for pretty code listings and for the terminal
 # tlp                     Linux Advanced Power Management
+# vim                     Vi Improved, a highly configurable, improved version of the vi text editor
 # xf86-input-libinput     Generic input driver for the X.Org server based on libinput
+# zsh                     A very advanced and programmable command interpreter (shell) for UNIX
 
-pacman -Sy  xf86-input-libinput networkmanager network-manager-applet termite ttf-inconsolata ttf-font-awesome dmenu acpi tlp ranger picom feh lxappearance alsa-utils arc-gtk-theme maim
+pacman -Syu acpi alsa utils arc-gtk-theme dmenu feh lxappearance maim network-manager-applet networkmanager picom polkit-gnome ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput zsh
 
 ## Distribute config files
 mkdir -v -p $home/.config/i3
