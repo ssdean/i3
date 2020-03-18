@@ -2,7 +2,7 @@
 
 ## Get home directory
 user=$SUDO_USER
-home=/home/$user/
+home=/home/$user
 
 ## Downloads
 
@@ -26,25 +26,25 @@ home=/home/$user/
 # xf86-input-libinput     Generic input driver for the X.Org server based on libinput
 # zsh                     A very advanced and programmable command interpreter (shell) for UNIX
 
-pacman -Syu acpi alsa utils arc-gtk-theme dmenu feh lxappearance maim network-manager-applet networkmanager picom polkit-gnome ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput zsh
+pacman -Syu acpi alsa-utils arc-gtk-theme dmenu feh lxappearance maim network-manager-applet networkmanager picom polkit-gnome ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput zsh
 
 ## Distribute config files
 mkdir -v -p $home/.config/i3
-cp -v config/config $home.config/i3/config
-cp -v config/i3blocks.conf $home.config/i3/i3blocks.conf
-mkdir -v -p $home.scripts
-cp -v -r scripts/* $home.scripts
+cp -v config/config $home/.config/i3/config
+cp -v config/i3blocks.conf $home/.config/i3/i3blocks.conf
+mkdir -v -p $home/.scripts
+cp -v -r scripts/* $home/.scripts
 
 ## Setup touchpad
 
-## Enables tap to click and natural scrolling
-#echo '
-#Section "InputClass"
-#    Identifier "libinput touchpad catchall"
-#    MatchIsTouchpad "on"
-#    MatchDevicePath "/dev/input/event*"
-#    Option "NaturalScrolling" "true"
-#    Option "Tapping" "on"
-#    Driver "libinput"
-#EndSection' >> /usr/share/X11/xorg.conf.d/40-libinput.conf
+# Enables tap to click and natural scrolling
+echo '
+Section "InputClass"
+    Identifier "libinput touchpad catchall"
+    MatchIsTouchpad "on"
+    MatchDevicePath "/dev/input/event*"
+    Option "NaturalScrolling" "true"
+    Option "Tapping" "on"
+    Driver "libinput"
+EndSection' >> /usr/share/X11/xorg.conf.d/40-libinput.conf
 
