@@ -9,15 +9,19 @@ home=/home/$user
 # acpi                    Client for battery, power, and thermal readings
 # alsa-utils              An alternative implementation of Linux sound support
 # arc-gtk-theme           A flat theme with transparent elements for GTK 3, GTK 2 and Gnome-Shell
+# cifs-utils              CIFS filesystem user-space tools
 # demenu                  Fast and lightweight dynamic menu for X
 # feh                     Fast and light imlib2-based image viewer (Need for desktop background)
+# gnome-desktop           Library with common API for various GNOME modules
 # lxappearance            Feature-rich GTK+ theme switcher of the LXDE Desktop
 # maim                    Utility to take a screenshot using imlib2
 # network-manager-applet  Applet for managing network connections
 # networkmanager          Network connection manager and user applications
+# openssh                 Premier connectivity tool for remote login with the SSH protocol
 # picom                   X compositor that may fix tearing issues (Replaces Compton. Needed for transparency)
 # polkit-gnome            Legacy polkit authentication agent for GNOME
 # ranger                  Simple, vim-like file manager
+# rsync                   A file transfer program to keep remote files in sync
 # termite                 Terminal emulator
 # ttf-font-awesome        Iconic font designed for Bootstrap
 # ttf-inconsolata         Monospace font for pretty code listings and for the terminal
@@ -26,7 +30,25 @@ home=/home/$user
 # xf86-input-libinput     Generic input driver for the X.Org server based on libinput
 # zsh                     A very advanced and programmable command interpreter (shell) for UNIX
 
-pacman -Syu acpi alsa-utils arc-gtk-theme dmenu feh lxappearance maim network-manager-applet networkmanager picom polkit-gnome ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput zsh
+pacman -Syu acpi alsa-utils arc-gtk-theme cifs-utils dmenu feh gnome-desktop lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput zsh
+
+# ================
+# Virtualization
+#
+# bridge-utils        	Utilities for configuring the Linux ethernet bridge
+# dmidecode           	Desktop Management Interface table related utilities
+# dnsmasq             	Lightweight, easy to configure DNS forwarder and DHCP server
+# ebtables            	Ethernet bridge filtering utilities
+# libvirt             	API for controlling virtualization engines (openvz,kvm,qemu,virtualbox,xen,et
+# ovmf                	Tianocore UEFI firmware for qemu.
+# qemu                	A generic and open source machine emulator and virtualizer
+# virt-install        	Console user interface for managing virtual machines
+# virt-viewer         	A lightweight interface for interacting with the graphical display of virtual
+# 
+#
+# pacman -S bridge-utils dmidecode dnsmasq ebtables libvirt ovmf qemu virt-install virt-viewer
+# ===============
+
 
 ## Distribute config files
 mkdir -v -p $home/.config/i3
