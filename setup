@@ -4,6 +4,11 @@
 user=$SUDO_USER
 home=/home/$user
 
+if [[ -z $user ]]; then
+   echo "Run as root"
+   exit;
+fi
+
 ## Downloads
 
 # acpi                    Client for battery, power, and thermal readings
@@ -13,6 +18,7 @@ home=/home/$user
 # demenu                  Fast and lightweight dynamic menu for X
 # feh                     Fast and light imlib2-based image viewer (Need for desktop background)
 # gnome-desktop           Library with common API for various GNOME modules
+# iptables                Linux kernel packet control tool
 # lxappearance            Feature-rich GTK+ theme switcher of the LXDE Desktop
 # maim                    Utility to take a screenshot using imlib2
 # network-manager-applet  Applet for managing network connections
@@ -30,7 +36,16 @@ home=/home/$user
 # xf86-input-libinput     Generic input driver for the X.Org server based on libinput
 # zsh                     A very advanced and programmable command interpreter (shell) for UNIX
 
-pacman -Syu acpi alsa-utils arc-gtk-theme cifs-utils dmenu feh gnome-desktop lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput zsh
+install() {
+    pacman -Syu acpi alsa-utils arc-gtk-theme cifs-utils dmenu feh gnome-desktop lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput zsh
+
+## Distribute config files
+mkdir -v -p $home/.config/i3
+cp -v config/config $home/.config/i3/config
+cp -v config/i3blocks.conf $home/.config/i3/i3blocks.conf
+mkdir -v -p $home/.scripts
+cp -v -r scripts/* $home/.scripts
+}
 
 # ================
 # Virtualization
@@ -45,22 +60,17 @@ pacman -Syu acpi alsa-utils arc-gtk-theme cifs-utils dmenu feh gnome-desktop lxa
 # virt-install        	Console user interface for managing virtual machines
 # virt-viewer         	A lightweight interface for interacting with the graphical display of virtual
 # 
-#
-# pacman -S bridge-utils dmidecode dnsmasq ebtables libvirt ovmf qemu virt-install virt-viewer
+
+virt() {
+    pacman -S bridge-utils dmidecode dnsmasq ebtables libvirt ovmf qemu virt-install virt-viewer
+}
 # ===============
 
 
-## Distribute config files
-mkdir -v -p $home/.config/i3
-cp -v config/config $home/.config/i3/config
-cp -v config/i3blocks.conf $home/.config/i3/i3blocks.conf
-mkdir -v -p $home/.scripts
-cp -v -r scripts/* $home/.scripts
-
-## Setup touchpad
 
 # Enables tap to click and natural scrolling
-echo '
+touchpad() {
+    echo '
 Section "InputClass"
     Identifier "libinput touchpad catchall"
     MatchIsTouchpad "on"
@@ -69,4 +79,32 @@ Section "InputClass"
     Option "Tapping" "on"
     Driver "libinput"
 EndSection' >> /usr/share/X11/xorg.conf.d/40-libinput.conf
+}
 
+usage() {
+    echo '
+Usage: sudo ./setup [option] [option] ...
+
+install       Install packages and distribute i3 config files
+touchpad      Add settings for tap to click and natural scrolling 
+virt          Install additional packages for virtualization
+'        
+}
+
+if [[ $# == 0 ]]; then
+    usage
+    exit
+fi
+
+while [ "$1" != "" ]; do
+    case $1 in
+        install ) install
+    ;;
+        touchpad ) touchpad
+    ;;
+        virt ) virt
+    ;;
+        * ) usage
+    esac
+    shift
+done
