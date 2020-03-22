@@ -15,6 +15,7 @@ fi
 # alsa-utils              An alternative implementation of Linux sound support
 # arc-gtk-theme           A flat theme with transparent elements for GTK 3, GTK 2 and Gnome-Shell
 # cifs-utils              CIFS filesystem user-space tools
+# cronie                  Daemon that runs specified programs at scheduled times and related tools
 # demenu                  Fast and lightweight dynamic menu for X
 # feh                     Fast and light imlib2-based image viewer (Need for desktop background)
 # gnome-desktop           Library with common API for various GNOME modules
@@ -37,7 +38,7 @@ fi
 # zsh                     A very advanced and programmable command interpreter (shell) for UNIX
 
 install() {
-    pacman -Syu acpi alsa-utils arc-gtk-theme cifs-utils dmenu feh gnome-desktop iptables lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput zsh
+    pacman -Syu acpi alsa-utils arc-gtk-theme cifs-utils cronie dmenu feh gnome-desktop iptables lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput zsh
 
 ## Distribute config files
 mkdir -v -p $home/.config/i3
