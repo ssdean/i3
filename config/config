@@ -67,7 +67,7 @@ bindsym $mod+Shift+Delete exec $(shutdown -h now)
 bindsym $mod+m exec --no-startup-id virt-viewer
 
 # Randomly cycle wallpaper
-bindsym $mod+Shift+b exec --no-startup-id feh --randomize --bg-max ~/Pictures/Wallpapers*
+bindsym $mod+Shift+b exec --no-startup-id feh --randomize --bg-scale ~/Pictures/Wallpapers*
 
 for_window [class="Toplevel"] border pixel 0
 for_window [class="Toplevel"] resize set 600 700
@@ -242,8 +242,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # WALLPAPER / EFFECTS
-#exec --no-startup-id feh --randomize --bg-max ~/Pictures/Wallpapers/
-#exec --no-startup-id picom -f
+exec --no-startup-id feh --randomize --bg-scale ~/Pictures/Wallpapers/*
+exec --no-startup-id picom -f
 
 # SCRATCHPADS
 exec --no-startup-id $term --name=dropdown
