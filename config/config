@@ -193,21 +193,20 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 ## COLOURS ##
 #############
 
-set $accent1       #5294e2
-set $accent2       #9900bb
-set $background1   #2f343f
-set $background2   #485485
-set $text          #f3f4f5
-set $inactive_text #676e7d 
-set $notification  #e53935
-set $inactive      #000000
+set $background       #2f343f
+set $active_border    #2f343f
+set $inactive_border  #000000
+set $indicator        #5294e2
+set $text             #f3f4f5
+set $inactive_text    #676e7d 
+set $notification     #e53935
 
 # Window colours
-#                       Border        Background    Text            Indicator
-client.focused          $accent1      $accent1      $text           $accent2
-client.unfocused        $inactive     $background1  $inactive_text  #3b5998
-client.focused_inactive $background1  $background1  $inactive_text  #3b5998
-client.urgent           $notification $notification $text           #3b5998
+#                       Border           Background       Text            Indicator
+client.focused          $active_border   $active_border   $text           $indicator
+client.unfocused        $inactive_border $inactive_border $inactive_text  $inactive_border
+client.focused_inactive $inactive_border $inactive_border $inactive_text  $inactive_border
+client.urgent           $notification    $notification    $text           $notification
 
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
@@ -216,12 +215,12 @@ bar {
 	font pango: inconsolata 9
 
         colors{
-               background $background1
-               separator  $accent2
-               #                  Border        Background    Text
-               focused_workspace  $accent1         $background1  $text
-               inactive_workspace $background1  $background1  $text
-               urgent_workspace   $notification $notification $text
+               background $background
+               separator  $indicator
+               #                  Border         Background    Text
+               focused_workspace  $indicator     $background   $text
+               inactive_workspace $background    $background   $text
+               urgent_workspace   $notification  $notification $text
         }
 }
 
