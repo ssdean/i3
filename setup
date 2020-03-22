@@ -38,8 +38,9 @@ fi
 # zsh                     A very advanced and programmable command interpreter (shell) for UNIX
 
 install() {
-    pacman -Syu acpi alsa-utils arc-gtk-theme cifs-utils cronie dmenu feh gnome-desktop iptables lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput zsh
+    pacman -Syu acpi alsa-utils arc-gtk-theme cifs-utils cronie dmenu feh firefox gnome-desktop i3 iptables lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput xorg xorg-xinit zsh
 
+echo "exec i3" > $home/.xinitrc
 ## Distribute config files
 mkdir -v -p $home/.config/i3
 cp -v config/config $home/.config/i3/config
