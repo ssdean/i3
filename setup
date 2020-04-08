@@ -14,6 +14,7 @@ fi
 # acpi                    Client for battery, power, and thermal readings
 # alsa-utils              An alternative implementation of Linux sound support
 # arc-gtk-theme           A flat theme with transparent elements for GTK 3, GTK 2 and Gnome-Shell
+# blueman                 GTK+ Bluetooth Manager
 # cifs-utils              CIFS filesystem user-space tools
 # cronie                  Daemon that runs specified programs at scheduled times and related tools
 # demenu                  Fast and lightweight dynamic menu for X
@@ -38,7 +39,9 @@ fi
 # zsh                     A very advanced and programmable command interpreter (shell) for UNIX
 
 install() {
-    pacman -Syu acpi alsa-utils arc-gtk-theme cifs-utils cronie dmenu feh firefox gnome-desktop i3 iptables lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput xorg xorg-xinit zsh
+    pacman -Syu acpi alsa-utils arc-gtk-theme blueman cifs-utils cronie dmenu feh firefox gnome-desktop i3 iptables lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput xorg xorg-xinit zsh
+
+systemctl enable bluetooth
 
 echo "exec i3" > $home/.xinitrc
 ## Distribute config files
