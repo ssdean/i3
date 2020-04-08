@@ -50,7 +50,9 @@ cp -v config/config $home/.config/i3/config
 cp -v config/i3blocks.conf $home/.config/i3/i3blocks.conf
 mkdir -v -p $home/.scripts
 cp -v -r scripts/* $home/.scripts
+chown -v $user:users $home/.config/i3 $home/.scripts
 }
+
 
 # ================
 # Virtualization
