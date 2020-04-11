@@ -193,12 +193,13 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 ## COLOURS ##
 #############
 
-set $background       #2f343f
-set $active_border    #2f343f
-set $inactive_border  #000000
-set $indicator        #5294e2
+#set $background       #2f343f
+set $background       #000000
+set $active_border    #000000
+set $inactive_border  #2f343f
+set $indicator        #5294f2
 set $text             #f3f4f5
-set $inactive_text    #676e7d 
+set $inactive_text    #4a4d5c 
 set $notification     #e53935
 
 # Window colours
@@ -218,8 +219,8 @@ bar {
                background $background
                separator  $indicator
                #                  Border         Background    Text
-               focused_workspace  $indicator     $background   $text
-               inactive_workspace $background    $background   $text
+               focused_workspace  $background    $background   $text
+               inactive_workspace $background    $background   $inactive_text
                urgent_workspace   $notification  $notification $text
         }
 }
@@ -228,8 +229,8 @@ bar {
 ### BORDERS ###
 ###############
 
-gaps outer 5
-gaps inner 5
+gaps outer 0
+gaps inner 0
 for_window [class="^.*"] border pixel 2
 
 
