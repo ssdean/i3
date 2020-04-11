@@ -41,7 +41,9 @@ fi
 install() {
     pacman -Syu acpi alsa-utils arc-gtk-theme blueman cifs-utils cronie dmenu feh firefox gnome-desktop i3 iptables lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput xorg xorg-xinit zsh
 
-systemctl enable bluetooth
+systemctl enable --now NetworkManager
+systemctl enable --now bluetooth
+systemctl enable --now tlp
 
 echo "exec i3" > $home/.xinitrc
 ## Distribute config files
@@ -70,6 +72,7 @@ chown -v -R $user:users $home/.config/i3 $home/.scripts
 
 virt() {
     pacman -S bridge-utils dmidecode dnsmasq ebtables libvirt ovmf qemu virt-install virt-viewer
+    systemctl enable --now libvirtd
 }
 # ===============
 
