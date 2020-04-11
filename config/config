@@ -40,10 +40,10 @@ bindsym $mod+i [instance="math"] scratchpad show; [instance="math"] move positio
 ##########################
 
 # Code
-bindsym $mod+a exec --no-startup-id $editor
+bindsym $mod+e exec --no-startup-id $editor
 
 # Dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -l 5
+bindsym $mod+d exec --no-startup-id dmenu_run -i -l 15 -nb '#000000' -nf '#575757' -sb '#000000' -sf '#ffffff'
 
 # Firefox
 bindsym $mod+b exec --no-startup-id $browser
@@ -114,19 +114,16 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# split in horizontal orientation
-bindsym $mod+Shift+v split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+v layout toggle split
+bindsym $mod+Control+v split vertical
+bindsym $mod+Shift+v split horizontal
+bindsym $mod+a layout toggle all
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -199,7 +196,7 @@ set $active_border    #000000
 set $inactive_border  #2f343f
 set $indicator        #5294f2
 set $text             #f3f4f5
-set $inactive_text    #4a4d5c 
+set $inactive_text    #575757 
 set $notification     #e53935
 
 # Window colours
