@@ -21,6 +21,8 @@ fi
 # feh                     Fast and light imlib2-based image viewer (Need for desktop background)
 # gnome-desktop           Library with common API for various GNOME modules
 # iptables                Linux kernel packet control tool
+# lightdm                 A lightweight display manager
+# lightdm-gtk-greeter     GTK+ greeter for LightDM
 # lxappearance            Feature-rich GTK+ theme switcher of the LXDE Desktop
 # maim                    Utility to take a screenshot using imlib2
 # network-manager-applet  Applet for managing network connections
@@ -36,10 +38,11 @@ fi
 # tlp                     Linux Advanced Power Management
 # vim                     Vi Improved, a highly configurable, improved version of the vi text editor
 # xf86-input-libinput     Generic input driver for the X.Org server based on libinput
+# xorg-xinit              X.Org initialisation program
 # zsh                     A very advanced and programmable command interpreter (shell) for UNIX
 
 install() {
-    pacman -Syu acpi alsa-utils arc-gtk-theme blueman cifs-utils cronie dmenu feh firefox gnome-desktop i3 iptables lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput xorg xorg-xinit zsh
+    pacman -Syu acpi alsa-utils arc-gtk-theme blueman cifs-utils cronie dmenu feh firefox gnome-desktop i3 iptables lightdm lightdm-gtk-greeter lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput xorg xorg-xinit zsh
 
 systemctl enable --now NetworkManager
 systemctl enable --now bluetooth
