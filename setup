@@ -52,7 +52,10 @@ cp -v config/config $home/.config/i3/config
 cp -v config/i3blocks.conf $home/.config/i3/i3blocks.conf
 mkdir -v -p $home/.scripts
 cp -v -r scripts/* $home/.scripts
-chown -v -R $user:users $home/.config/i3 $home/.scripts
+cp -v lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter
+mkdir -v -p $home/Pictures/Wallpapers
+cp -v background/LightWaves.jpg $home/Pictures/Wallpapers
+chown -v -R $user:users $home/.config/i3 $home/.scripts $home/Pictures
 }
 
 
