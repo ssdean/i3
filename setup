@@ -15,6 +15,8 @@ fi
 # alsa-utils              An alternative implementation of Linux sound support
 # arc-gtk-theme           A flat theme with transparent elements for GTK 3, GTK 2 and Gnome-Shell
 # blueman                 GTK+ Bluetooth Manager
+# bluez-tools             A set of tools to manage Bluetooth devices for Linux
+# bluez-utils             Development and debugging utilities for the bluetooth protocol stack
 # cifs-utils              CIFS filesystem user-space tools
 # cronie                  Daemon that runs specified programs at scheduled times and related tools
 # demenu                  Fast and lightweight dynamic menu for X
@@ -30,6 +32,9 @@ fi
 # openssh                 Premier connectivity tool for remote login with the SSH protocol
 # picom                   X compositor that may fix tearing issues (Replaces Compton. Needed for transparency)
 # polkit-gnome            Legacy polkit authentication agent for GNOME
+# pulseaudio              A featureful, general-purpose sound server
+# pulseaudio-alsa         ALSA Configuration for PulseAudio
+# pulseaudio-bluetooth    Bluetooth support for PulseAudio
 # ranger                  Simple, vim-like file manager
 # rsync                   A file transfer program to keep remote files in sync
 # termite                 Terminal emulator
@@ -42,7 +47,7 @@ fi
 # zsh                     A very advanced and programmable command interpreter (shell) for UNIX
 
 install() {
-    pacman -Syu acpi alsa-utils arc-gtk-theme blueman cifs-utils cronie dmenu feh firefox gnome-desktop i3 iptables lightdm lightdm-gtk-greeter lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput xorg xorg-xinit zsh
+    pacman -Syu acpi alsa-utils arc-gtk-theme blueman bluez-tools bluez-utils cifs-utils cronie dmenu feh firefox gnome-desktop i3 iptables lightdm lightdm-gtk-greeter lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome pulseaudio pulseaudio-alsa pulseaudio-bluetooth rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput xorg xorg-xinit zsh
 
 systemctl enable --now NetworkManager
 systemctl enable --now bluetooth
