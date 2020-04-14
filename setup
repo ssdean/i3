@@ -23,10 +23,12 @@ fi
 # feh                     Fast and light imlib2-based image viewer (Need for desktop background)
 # gnome-desktop           Library with common API for various GNOME modules
 # iptables                Linux kernel packet control tool
+# libnautilus-extension   Library for extending the Default file manager for GNOME
 # lightdm                 A lightweight display manager
 # lightdm-gtk-greeter     GTK+ greeter for LightDM
 # lxappearance            Feature-rich GTK+ theme switcher of the LXDE Desktop
 # maim                    Utility to take a screenshot using imlib2
+# nautilus                Default file manager for GNOME
 # network-manager-applet  Applet for managing network connections
 # networkmanager          Network connection manager and user applications
 # openssh                 Premier connectivity tool for remote login with the SSH protocol
@@ -47,7 +49,7 @@ fi
 # zsh                     A very advanced and programmable command interpreter (shell) for UNIX
 
 install() {
-    pacman -Syu acpi alsa-utils arc-gtk-theme blueman bluez-tools bluez-utils cifs-utils cronie dmenu feh firefox gnome-desktop i3 iptables lightdm lightdm-gtk-greeter lxappearance maim network-manager-applet networkmanager openssh picom polkit-gnome pulseaudio pulseaudio-alsa pulseaudio-bluetooth rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput xorg xorg-xinit zsh
+    pacman -Syu acpi alsa-utils arc-gtk-theme blueman bluez-tools bluez-utils cifs-utils cronie dmenu feh firefox gnome-desktop i3 iptables libnautilus-extension lightdm lightdm-gtk-greeter lxappearance maim nautilus network-manager-applet networkmanager openssh picom polkit-gnome pulseaudio pulseaudio-alsa pulseaudio-bluetooth rsync ranger termite ttf-font-awesome ttf-inconsolata tlp vim xf86-input-libinput xorg xorg-xinit zsh
 
 systemctl enable --now NetworkManager
 systemctl enable --now bluetooth

@@ -47,7 +47,7 @@ bindsym $mod+b exec --no-startup-id $browser
 bindsym $mod+e exec --no-startup-id $editor
 
 # Dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -i -l 8 -fn 'Cantarell Regular:pixelsize=16' -nb '#000000' -nf '#575757' -sb '#000000' -sf '#ffffff'
+bindsym $mod+d exec --no-startup-id dmenu_run -i -l 5 -fn 'Cantarell Regular:pixelsize=16' -nb '#000000' -nf '#575757' -sb '#000000' -sf '#ffffff'
 
 # File Manager
 bindsym $mod+Shift+Return exec --no-startup-id $filemanager
@@ -75,8 +75,6 @@ bindsym $mod+Shift+b exec --no-startup-id feh --randomize --bg-scale ~/Pictures/
 
 for_window [class="Toplevel"] border pixel 0
 for_window [class="Toplevel"] resize set 600 700
-
-
 
 #########################
 ## WINDOW KEY BINDINGS ##
@@ -153,9 +151,6 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-
-# Symbols 
-#    
 
 # Switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -234,7 +229,6 @@ gaps outer 0
 gaps inner 0
 for_window [class="^.*"] border pixel 2
 
-
 #######################
 ## START-UP PROGRAMS ##
 #######################
@@ -255,7 +249,6 @@ exec --no-startup-id $term --name=math -e python\ -q
 ### Audio ###
 #############
 
-
 # Pulse Audio mechanical buttons config
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ && pkill -RTMIN+10 i3blocks && pkill -RTMIN+11 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- && pkill -RTMIN+10 i3blocks && pkill -RTMIN+11 i3blocks
@@ -267,7 +260,6 @@ bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle && pkill -R
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 15 && pkill -RTMIN+10 i3blocks && pkill -RTMIN+11 i3blocks
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 15 && pkill -RTMIN+10 i3blocks && pkill -RTMIN+11 i3blocks
-
 
 ########
 # MISC #
